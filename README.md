@@ -8,3 +8,4 @@ THE FINALS® (더 파이널스)의 리더보드를 보여주는 Next.js 기반 �
 ### 사용된 리소스 및 라이브러리
 * [NextUI](https://nextui.org)
 * [Tailwind CSS](https://tailwindcss.com)
+* [Font Awesome](https://fontawesome.com)

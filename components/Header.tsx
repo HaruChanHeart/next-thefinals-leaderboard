@@ -12,7 +12,7 @@ export function Header() {
                 alt='THE FINALS LOGO'
                 className='my-2'
             />
-            <p className='text-xl dark:text-zinc-400'>Unoficial Leaderboard Tracker</p>
+            <p className='text-xl dark:text-zinc-400'>Unofficial Leaderboard Tracker</p>
         </header>
     )
 }
