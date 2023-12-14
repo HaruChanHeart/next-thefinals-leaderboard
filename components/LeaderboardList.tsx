@@ -75,6 +75,16 @@ export function LeaderboardList() {
         setPlatform(p)
     }
 
+    const splitEmbarkId = (item) => {
+        const a = item.split('#')
+        return (
+            <>
+                <span>{a[0]}</span>
+                <span className='text-zinc-500'>#{a[1]}</span>
+            </>
+        )
+    }
+
     const loadingState = leaderboard.length === 0 ? 'loading' : 'idle'
 
     return (
@@ -139,7 +149,11 @@ export function LeaderboardList() {
                         >
                             <TableCell>{formatNumber(item.r)}</TableCell>
                             <TableCell>{item.or - item.r}</TableCell>
-                            <TableCell>{item.name}</TableCell>
+                            <TableCell>
+                                {
+                                    platform === 'crossplay' ? splitEmbarkId(item.name) : item.name
+                                }
+                            </TableCell>
                             <TableCell>{formatNumber(item.c)}</TableCell>
                             <TableCell>
                                 <div className='flex gap-1'>
@@ -149,21 +163,21 @@ export function LeaderboardList() {
                             </TableCell>
                             <TableCell className='flex gap-2 text-2xl'>
                                 {
-                                    item.steam !== '' ?
-                                        <Tooltip content={item.steam}>
+                                    item.steam !== '' || platform === 'steam' ?
+                                        <Tooltip content={platform === 'steam' ? 'Steam' : item.steam}>
                                             <i className='fa-brands fa-steam' />
                                         </Tooltip>
                                     : ''
                                 }
                                 {
-                                    item.xbox !== '' ?
-                                        <Tooltip content={item.xbox}>
+                                    item.xbox !== '' || platform === 'xbox' ?
+                                        <Tooltip content={platform === 'xbox' ? 'Xbox' : item.xbox}>
                                             <i className='fa-brands fa-xbox text-success-600 dark:text-sucess-500' />
                                         </Tooltip>
                                     : ''}
                                 {
-                                    item.psn !== '' ?
-                                        <Tooltip content={item.psn}>
+                                    item.psn !== '' || platform === 'psn' ?
+                                        <Tooltip content={platform === 'psn' ? 'PlayStation' : item.psn}>
                                             <i className='fa-brands fa-playstation text-primary-600 dark:text-primary-500' />
                                         </Tooltip>
                                     : ''}
