@@ -75,7 +75,7 @@ export function LeaderboardList() {
         setPlatform(p)
     }
 
-    const splitEmbarkId = (item) => {
+    const splitEmbarkId = (item: string) => {
         const a = item.split('#')
         return (
             <>
