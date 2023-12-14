@@ -90,7 +90,10 @@ export function LeaderboardList() {
     return (
         <>
             <div className='flex w-full flex-wrap md:flex-nowrap gap-4 my-5'>
-                <Input type='text' label={platform === 'crossplay' ? 'Search Embark ID' : 'Search Name'} onChange={(e) => setFindName(e.target.value)} />
+                <Input type='text' label={platform === 'crossplay' ? 'Search Embark ID' : 'Search Name'} onChange={(e) => {
+                    setPage(1)
+                    setFindName(e.target.value)
+                }} />
                 <Select
                     label='Platform'
                     defaultSelectedKeys={['crossplay']}
